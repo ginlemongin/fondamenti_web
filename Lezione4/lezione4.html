@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione 4</title>
+</head>
+<!--  -->
+
+<body>
+    <h2>Link YT</h2>
+    <!-- il tag IFRAME inserisce un video da yt per non sovraccaricare il server -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/CuCRyvh2t18" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+
+    <h1>Form</h1> <!-- noi stiamo lavorando solo lato client, non lato server, quindi per ora su action aka la pagina di risposta
+        impostiamo qualcosa che darà errore perche il server non lo abbiamo -->
+    <form action="inviaDati.php" method="get" name="contatti">
+        <h2>Contatta l'azienda</h2> <!-- dentro il form posso mettere altri titoli -->
+        <fieldset> <!-- il tag FIELDSET è facoltativo e serve per raggruppare dei dati -->
+            <legend>Dati anagrafici</legend> <!-- LEGEND aggiunge un titolo perche di default fieldset è invisibile -->
+            <label for="nominativo">Nominativo:</label>
+            <!-- LABEL serve per estendere lo spazio su cui cliccare per inserire i dati, dentro il FOR contiene l'id dell'oggetto a cui fa riferimento la LABEL -->
+            <input type="text" name="nominativo" id="nominativo">
+            <!-- l'INPUT più comune è il tipo TEXT, in questo caso fa apparire uno spazio su cui scrivere, ID serve per collegare questo input alla LABEL sopra -->
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email">
+        </fieldset>
+        <!--  -->
+        <fieldset>
+            <legend>Dati di residenza</legend>
+            <label for="indirizzo">Indirizzo:</label>
+            <input type="text" name="indirizzo" id="indirizzo">
+            <label for="cap">CAP:</label>
+            <input type="text" name="cap" id="cap">
+            <label for="localita">Località:</label>
+            <!-- se ci sono parole con gli accenti, per evitare di incasinare il codice con caratteri strani lo si inserisce nelle parti tipo ID e NAME senza accento -->
+            <input type="text" name="localita" id="localita">
+            <label for="provincia">Provincia:</label>
+            <input type="text" name="provincia" id="provincia">
+        </fieldset>
+        <fieldset>
+            <legend>Dati di Accesso</legend>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Messaggio">
+             <!-- placeholer messaggio finto, indica la finalita del campo, un value invece passa proprio dei dati -->
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+            <!-- password nasconde i caratteri con dei pallini -->
+        </fieldset>
+    <div>
+        <textarea name="messaggio" id="messaggio" cols="30" rows="10" >
+        </textarea>
+    </div>
+    <section id="hobbies">
+        <h2>Sport preferiti:</h2>
+        <label for="calcio">calcio</label>
+        <input type="checkbox" name="calcio" id="calcio">
+        <label for="tennis">calcio</label>
+        <input type="checkbox" name="tennis" id="tennis">
+        <label for="basket">calcio</label>
+        <input type="checkbox" name="basket" id="basket">
+        <label for="volley">calcio</label>
+        <input type="checkbox" name="volley" id="volley">
+    </section>
+    <section>
+        <input type="submit" value="Richiedi Informazioni">
+        <input type="reset" value="Annulla Form">
+        <button type="submit"></button>
+    </section>
+    <!-- annotazioni camelcase, pascalcase, snakecase (nei database), kebab case (negli slug) -->
+    <!-- se nel campo valore aggiungi il  tipo serve a vedere il type senza aprire il form o il codice  -->
+    <!-- il checkbox vienee passato solo se è valorizzato, il radio se non lo valorizzi non viene passato -->
+       
+        <!-- al posto del field set puoi usare un div, anche la label non è mandatoria -->
+        <input type="submit" value="Richiedi informazioni"> <!-- SUBMIT serve per inviare i dati del form alla pagina di ACTION, posso inserirlo sia come INPUT
+        che come BUTTON, la diff è che INPUT è autochiudente, BUTTON invece devi scriverlo tu -->
+        <button type="submit">Richiedi informazioni (alt)</button>
+
+        <input type="reset" value="Annulla form">
+        <button type="reset">Annulla form (alt)</button>
+        <!-- posso usare i button anche per fargli fare altre cose come resettare il form -->
+
+        <button id="calcola-cf" type="button">Calcola codice fiscale</button>
+        <!-- questo è un comando piu complicato che vedremo su javascript, siccome non abbiamo scritto cosa fa l'ID calcola-cf in java, non farà nulla -->
+
+        <!-- XAMPP è un programma che simula un werver web, all'interno della sua cartella htdocs crei diverse cartelle e ci copi gli stessi file .html su cui lavori qui
+        poi vai sul browser e vai sulla pagina LOCALHOST per aprire il file dal server web, apparirà uguale con la differenza che stavolta si appoggia a un server -->
+        <!-- IL METODO GET passa i dati nella url devi riceverli in GET, i dati visibili nella url vengono esaminati da google analytics -->
+        <!-- metodo POST ddevi ricevere i dati in POST altrimenti non ricevi nulla nella url non compare nulla perchè i dati vengono nascosti dall url,
+             se ricarichi la pagina in post ti dice "conferma reinvio modulo"-->
+        <!-- google analytics ha bisongo di informazioni come i parametri, il numero delle persone che ha visualizzato la pagina, meglio passare i paramentri nascosti -->
+        <!-- payload con il form data per vedere i dati passati, nella sezione network dello ispezina di chrome. Nel print r (quando apri un docuemnto con il browser)
+            non ti acorgi se un nominativo è doppio perchè in un arrai un dato sostituisce l'altro -->
+    </form>
+
+
+
+</body>
+
+</html>
